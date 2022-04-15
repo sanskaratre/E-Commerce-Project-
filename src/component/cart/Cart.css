@@ -1,0 +1,23 @@
+.cart{
+    background-color: white;
+    width: 30vw;
+    height: auto;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+}
+
+.Header{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.50rem;
+}
+
+.cartName{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.X{
+    position: absolute;
+    right: 20px;
+}

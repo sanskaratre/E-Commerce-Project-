@@ -1,3 +1,5 @@
+import React from "react";
+import ProductsList from "./ProductsList";
 
 const productsArr = [
 
@@ -42,23 +44,17 @@ const productsArr = [
     }
     
     ]
-    
-    
 
-const Items = () => {
-   const itemList = productsArr.map((item) => (
-       <div>
-          <h2>{item.title}</h2>
-          <h3>${item.price}</h3>
-          <img src={item.imageUrl} alt='item_photo' />
-       </div>
-   ))
-   return (
-       <ul>
-            {itemList}
-       </ul>
-       
-   )
-};
+    const AvailableProducts = () => {
 
-export default Items
+        const products = productsArr.map((product) => (
+            <ProductsList title={product.title} price = {product.price} image = {product.imageUrl} />
+        ))
+        return (
+            <ul>
+                {products}
+            </ul>
+        )
+    };
+
+    export default AvailableProducts;
