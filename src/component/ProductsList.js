@@ -1,12 +1,32 @@
-import React, {Fragment} from "react";
+import React, {Fragment,useContext} from "react";
+import CartContext from "./CartContext";
+import './Style.css';
+
 const ProductsList = (props) => {
-    const imagescr = props.image;
+
+    const cartCntxt = useContext(CartContext);
+
+    const addToCart = (event) =>{
+        event.preventDefault();
+        const itm = {
+            id: props.id,
+            title: props.title,
+            imgsrc:props.img,
+            price: props.price,
+            quantity: props.quantity
+        };
+        cartCntxt.addItem(itm);
+       
+    };
+
+    const imgsrc = props.img;
     return (
         <Fragment>
-            <ul>
+            <ul className="propducts">
                 <div> Title: {props.title}</div>
-                <div> <img src={imagescr} alt='product_photo' /> </div>
-                <div> Price: {props.price} </div>
+                <div> <img src={imgsrc} alt='product_photo' /> </div>
+                <div> Rs. {props.price} </div>
+                <button className="add" onClick={addToCart} >Add To Cart</button>
             </ul>
         </Fragment>
     )

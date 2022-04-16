@@ -1,47 +1,35 @@
 
 
-import React from 'react';
+import React,{useContext} from 'react';
 import './Cart.css';
 import CartItems from './CartItems';
-
-const cartElements = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-      quantity: 2,
-    },
-
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-      quantity: 3,
-    },
-
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-      quantity: 1,
-    },
-  ];
+import CartContext from '../CartContext';
 
 
 
   const Cart = (props) => {
-      const cartList = cartElements.map((list) => 
-      <CartItems
-          item={list.title} img={list.imageUrl} 
-      price={list.price} amount={list.quantity}/>
-      );
+    const cartCntxt = useContext(CartContext);
+  
+     const cartList = cartCntxt.items.map((list) => 
+
+     (<CartItems
+         key={list.id}
+         item={list.title} 
+         img={list.imageUrl} 
+         price={list.price} 
+         quantity={list.quantity}/>
+         
+     )
+         
+     );
+     
       return (
 
           <div className="cart">
             <h3 className="cartName">
-              Cart
-              <button className="btn btn-primary X" onClick={props.onClick}>
-                X
+              Cart  
+              <button className="btn btn-danger X" onClick={props.onClick}>
+               X
               </button>
             </h3>
             <div className="container">

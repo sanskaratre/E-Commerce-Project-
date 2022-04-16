@@ -3,8 +3,12 @@
     width: 30vw;
     height: auto;
     position: absolute;
-    top: 70px;
-    right: 30px;
+    top: 54px;
+    right: 20px;
+    border-radius: 2rem;
+    border: 5px;
+    border-color: blue;
+    background-color: rgb(192, 249, 230);
 }
 
 .Header{
@@ -19,5 +23,5 @@
 
 .X{
     position: absolute;
-    right: 20px;
+    right: 25px;
 }

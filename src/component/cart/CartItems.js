@@ -15,10 +15,12 @@ const CartItems = (props) => {
           <span>{props.price}</span>
         </div>
         <div className="col">
-          <span>{props.amount}</span>
+          <span>{props.quantity}</span>
+        </div>
+        <div className='col'>
+        <button className='btn btn-danger remove'>Remove</button>
         </div>
       </div>
-      <button className='btn btn-danger remove'>Remove</button>
     </div>
   );
 };

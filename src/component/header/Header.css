@@ -5,6 +5,7 @@
     height: 52px;
 }
 .h3{
+    top: 10px;
     margin:0;
 }
 .down{
@@ -23,7 +24,7 @@
 }
 
 .butt{
-    box-sizing :border-box;
+    
     top: 6px;
     position: absolute;
     right: 20px;
