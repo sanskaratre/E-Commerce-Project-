@@ -26,7 +26,7 @@ const ProductsList = (props) => {
                 <div> Title: {props.title}</div>
                 <div> <img src={imgsrc} alt='product_photo' /> </div>
                 <div> Rs. {props.price} </div>
-                <button className="add" onClick={addToCart} >Add To Cart</button>
+                <button style={{backgroundColor : 'lightgreen'}} onClick={addToCart} >Add To Cart</button>
             </ul>
         </Fragment>
     )

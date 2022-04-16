@@ -25,3 +25,9 @@
     position: absolute;
     right: 25px;
 }
+
+.Total{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.50rem;
+    text-align: end;
+}

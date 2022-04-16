@@ -8,21 +8,29 @@ import CartContext from '../CartContext';
 
 
   const Cart = (props) => {
+    let cartTotal = 0;
     const cartCntxt = useContext(CartContext);
   
      const cartList = cartCntxt.items.map((list) => 
 
      (<CartItems
          key={list.id}
+         id = {list.id}
          item={list.title} 
          img={list.imageUrl} 
          price={list.price} 
          quantity={list.quantity}/>
          
-     )
-         
+     )    
      );
      
+     cartCntxt.items.forEach((item) => {
+       let subTotal = 0;
+       subTotal = item.quantity * item.price;
+       cartTotal = cartTotal + subTotal;
+     })
+
+
       return (
 
           <div className="cart">
@@ -46,6 +54,7 @@ import CartContext from '../CartContext';
               </div>
             </div>
             {cartList}
+            <div className='total'>Total = {cartTotal}</div>
           </div>
 
       );

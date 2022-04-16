@@ -1,6 +1,7 @@
 
 import React,{Fragment,useContext} from 'react';
 import CartContext from '../CartContext';
+import {NavLink } from 'react-router-dom';
 import './Header.css';
 
 
@@ -20,15 +21,15 @@ const Header = (props) => {
       <Fragment>
         <div className="up">
           <h3 className="h3">
-            <a className="a" href=" ">
+            <NavLink className="a" to="/Home">
               HOME
-            </a>
-            <a className="a" href=" ">
+            </NavLink>
+            <NavLink className="a" to="/Products">
               STORE
-            </a>
-            <a className="a" href=" ">
+            </NavLink>
+            <NavLink className="a" to="/About">
               ABOUT
-            </a>
+            </NavLink>
             <button className="butt" onClick={props.cart}>Cart ({total})</button>
           </h3>
         </div>

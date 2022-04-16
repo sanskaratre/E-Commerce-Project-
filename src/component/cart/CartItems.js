@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CartContext from '../CartContext';
 import './CartItem.css';
 
 const CartItems = (props) => {
-    const imgsrc = props.img;
+     const imgsrc = props.img;
+
+   const cartCntxt = useContext(CartContext)
+  const removeItemFromCart = (event) => {
+    event.preventDefault();
+    cartCntxt.removeItem(props.id)
+  }
+
+
   return (
     <div className="container">
       <div className="row">
@@ -18,7 +27,7 @@ const CartItems = (props) => {
           <span>{props.quantity}</span>
         </div>
         <div className='col'>
-        <button className='btn btn-danger remove'>Remove</button>
+        <button className='btn btn-danger remove' onClick={removeItemFromCart} >Remove</button>
         </div>
       </div>
     </div>
