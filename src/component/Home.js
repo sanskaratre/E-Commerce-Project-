@@ -5,11 +5,19 @@ import MovieList from "./MovieList";
 const Home = () => {
 
   const [movies, setMovies] = useState([]);
+  const [fetching, setFetching] = useState(false);
+  const [error, setError] = useState(null);
 
-  const fetchMoviesHandler = () => {
-    fetch('https://swapi.dev/api/films/').then((response) => {
-      return response.json();
-    }).then((data) => {
+  async function fetchMoviesHandler() {
+    setFetching(true);
+    setError(null);
+    try {
+      const response = await fetch('https://swapi.dev/api/film/');
+   if(!response.ok){
+     throw new Error('Something went wrong ....Retrying')
+   }
+     const data = await  response.json();
+    
       const transformedMovies = data.results.map((moviedata) => {
         return {
           id :moviedata.episode_id,
@@ -19,7 +27,12 @@ const Home = () => {
         }
       });
       setMovies(transformedMovies);
-    })
+      
+    }
+   catch(error){
+     setError(error.message);
+   }
+   setFetching(false);
   };
 
     return (
@@ -29,7 +42,10 @@ const Home = () => {
           <button onClick={fetchMoviesHandler}>Fetch Movies</button>
         </section>
             <section>
-              <MovieList movies={movies} />
+             {!fetching && movies.length > 0 && <MovieList movies={movies} />}
+             {!fetching && movies.length === 0 && !error && <p>No Movies found !</p>}
+             {!fetching && error && <p>{error}</p>}
+             {fetching && <p>Loading...</p>}
             </section>
         </React.Fragment>
        
