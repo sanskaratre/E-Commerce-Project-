@@ -10,8 +10,9 @@ return (
                 key={movie.id}
                 title={movie.title}
                 openingText={movie.openingText}
-                releaseDate={movie.release}
-                
+                releaseDate={movie.releaseDate}
+                deleteButton= {props.deleteButton.bind(null, movie.id)}
+                 
             />
         ))}
     </ul>

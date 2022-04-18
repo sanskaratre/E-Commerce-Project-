@@ -30,6 +30,10 @@ const Header = (props) => {
             <NavLink className="a" to="/About">
               ABOUT
             </NavLink>
+            <NavLink className="a" to="/Contactus">
+              CONTACT US
+            </NavLink>
+
             <button className="butt" onClick={props.cart}>Cart ({total})</button>
           </h3>
         </div>

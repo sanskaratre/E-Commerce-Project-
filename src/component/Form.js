@@ -8,7 +8,7 @@ const Form = (props) => {
     const releaseDateRef = useRef('');
 
     const submitHandler = (event) => {
-        event.preventDefault();
+        //event.preventDefault();
 
     const movie = {
         title: titleRef.current.value,
@@ -33,7 +33,7 @@ const Form = (props) => {
                  <label htmlFor='date'>Release Date</label>
                  <input type='text' id='date' placeholder='Release Date of Movie' ref={releaseDateRef} />
             </div>
-            <button style={{borderRadius:'3rem'}}>Add Movie</button>
+            <button style={{borderRadius:'3rem', alignContent:'center'}}>Add Movie</button>
         </form>
     
     )

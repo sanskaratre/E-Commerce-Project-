@@ -13,22 +13,23 @@ const Home = () => {
     setFetching(true);
     setError(null);
     try {
-      const response = await fetch('https://swapi.dev/api/films/');
+      const response = await fetch('https://react-e---commerce-default-rtdb.firebaseio.com/movies.json');
    if(!response.ok){
      throw new Error('Something went wrong ....Retrying')
    }
      const data = await  response.json();
-    
-      const transformedMovies = data.results.map((moviedata) => {
-        return {
-          id :moviedata.episode_id,
-          title: moviedata.title,
-          openingText: moviedata.opening_crawl,
-          releaseDate:moviedata.release_Date
-        }
-      });
-      setMovies(transformedMovies);
-      
+     
+     const loadingMovies = [];
+     for(const key in data){
+       loadingMovies.push({
+         id:key,
+         title:data[key].title,
+         openingText: data[key].openingText,
+         releaseDate: data[key].releaseDate,  
+       });
+       
+     }
+      setMovies(loadingMovies); 
     }
    catch(error){
      setError(error.message);
@@ -36,12 +37,32 @@ const Home = () => {
    setFetching(false);
   },[]);
 
-  useEffect(() => {
+  useEffect((event) => {
+    
     fetchMoviesHandler();
   } , [fetchMoviesHandler])
 
-  const onaddMovieHandler = (movie) => {
-    console.log({movie})
+  const onaddMovieHandler = async(movie) => {
+    const response = await fetch('https://react-e---commerce-default-rtdb.firebaseio.com/movies.json', {
+      method: 'POST',
+      body:JSON.stringify(movie),
+      headers:{
+        'Content-Type' : 'application/json'
+      }
+    })
+    const data = await response.json();
+    console.log(data)
+  };
+
+  const deleteHandler = async(id) => {
+    await fetch(`https://react-e---commerce-default-rtdb.firebaseio.com/movies/${id}.json`, {
+      method: 'DELETE',
+      body:JSON.stringify(id),
+      headers:{
+        'Content-Type' : 'application/json'
+      }
+    })
+    setMovies(movies.filter((movie) => movie.id !== id))
   };
 
     return (
@@ -54,7 +75,7 @@ const Home = () => {
           <button style={{borderRadius:'3rem'}} onClick={fetchMoviesHandler}>Fetch Movies</button>
         </section>
             <section>
-             {!fetching && movies.length > 0 && <MovieList movies={movies} />  }
+             {!fetching && movies.length > 0 && <MovieList movies={movies} deleteButton = {deleteHandler} />  }
              {!fetching && movies.length === 0 && !error && <p>No Movies found !</p>}
              {!fetching && error && <p>{error}</p>}
              {fetching && <p>Loading...</p>}

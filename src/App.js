@@ -7,6 +7,7 @@ import CartProvider from './component/CartProvider';
 import { Route } from 'react-router-dom';
 import About from './component/About';
 import Home from './component/Home';
+import Contactus from './component/Contactus';
 
 
 
@@ -33,6 +34,9 @@ const hideCartHandler = () => {
         </Route>
         <Route path="/Products">
         <AvailableProducts />
+        </Route>
+        <Route path="/Contactus">
+        <Contactus />
         </Route>
         {cart && <Cart onClick = {hideCartHandler} />}
       </CartProvider>
