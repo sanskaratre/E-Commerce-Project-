@@ -33,21 +33,26 @@ const Contectus = () => {
     return (
         <Fragment>
             <div className="d-flex justify-content-center about"><h2>Contact us</h2></div>
+            <div  className="d-flex justify-content-center about">
              <form  onSubmit={submitHandler}>
                  <div className={classes.control}>
-                    <label htmlFor="name">NAME</label>
-                    <input style={{display: "block", width: "50%"}} type="text" placeholder="Enter Your Name" ref={nameRef} />
+                    <label htmlFor="name">NAME:</label>
+                    <input style={{display: "block", width: "150%"}} type="text" placeholder="Enter Your Name" ref={nameRef} />
                  </div>
+                 <br></br>
                  <div className={classes.control}>
-                    <label htmlFor="e-mail">E-MAIL</label>
-                    <input  style={{display: "block", width: "50%"}} type="mail" placeholder="Enter Your E-Mail" ref={mailRef} />
+                    <label htmlFor="e-mail">E-MAIL:</label>
+                    <input  style={{display: "block", width: "150%"}} type="mail" placeholder="Enter Your E-Mail" ref={mailRef} />
                  </div>
+                 <br></br>
                  <div className={classes.control}>
-                    <label htmlFor="phoneNo">Mobile Number</label>
-                    <input style={{display: "block", width: "50%"}} type="number" placeholder="Enter Your Mobile/Phone Number" ref={phoneRef} />
+                    <label htmlFor="phoneNo">Mobile Number:</label>
+                    <input style={{display: "block", width: "150%"}} type="number" placeholder="Enter Your Mobile/Phone Number" ref={phoneRef} />
                  </div>
+                 <br></br>
                 <button style={{borderRadius: '2rem', align:'center'}} type="submit">Submit</button>
              </form>
+             </div>
         </Fragment>
     )
 };

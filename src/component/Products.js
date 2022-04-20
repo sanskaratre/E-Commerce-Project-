@@ -31,7 +31,14 @@ const productsArr = [
         price: 100,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
         quantity:1
-    }
+    },
+    {
+        id: 4,
+        title: "T-shirt",
+        price: 120,
+        imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Shirt.png",
+        quantity: 1
+      }
     
     ]
 

@@ -43,17 +43,18 @@ import CartContext from '../CartContext';
             <div className="container">
               <div className="row Header">
                 <div className="col">
-                  <span>Item</span>
+                  Item
                 </div>
                 <div className="col">
-                  <span>Price</span>
+                  Price
                 </div>
                 <div className="col">
-                  <span>Quantity</span>
+                  Quantity
                 </div>
               </div>
             </div>
             {cartList}
+            <hr></hr>
             <div className='total'>Total = {cartTotal}</div>
           </div>
 
