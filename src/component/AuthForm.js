@@ -30,7 +30,7 @@ const submitHandler=(event)=>{
     }
 
   else{
-    url='https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDYzfjV1MeiFRCKljVvYYPQK8-hvFf8iJU'
+    url= "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDYzfjV1MeiFRCKljVvYYPQK8-hvFf8iJU"
     }
   fetch(url,
   {

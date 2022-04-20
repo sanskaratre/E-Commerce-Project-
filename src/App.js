@@ -38,14 +38,15 @@ const hideCartHandler = () => {
         <Route path ="/About">
           <About /> 
         </Route>
-        <Route path ="/Home">
-          <Home />
-        </Route>
+         {authCtx.isLoggedIn && (<Route path = "/Home"> 
+         <Home />
+        </Route>)}
+        {authCtx.isLoggedIn && (
         <Route path="/Products" exact>
         <Header Cart={ShowCartHandler} />
          {cart && <Cart onClick={hideCartHandler} />}
           <AvailableProducts />
-        </Route>
+        </Route>)}
         <Route path="/Products/:productId">
           <ProductDetails />
         </Route>
