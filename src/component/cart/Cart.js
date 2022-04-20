@@ -1,13 +1,13 @@
 
-
 import React,{useContext} from 'react';
 import './Cart.css';
 import CartItems from './CartItems';
 import CartContext from '../CartContext';
 
 
-
   const Cart = (props) => {
+
+   
     let cartTotal = 0;
     const cartCntxt = useContext(CartContext);
   
@@ -17,7 +17,7 @@ import CartContext from '../CartContext';
          key={list.id}
          id = {list.id}
          item={list.title} 
-         img={list.imageUrl} 
+         img={list.imgsrc} 
          price={list.price} 
          quantity={list.quantity}/>
          
@@ -35,7 +35,7 @@ import CartContext from '../CartContext';
 
           <div className="cart">
             <h3 className="cartName">
-              Cart  
+              Cart
               <button className="btn btn-danger X" onClick={props.onClick}>
                X
               </button>
@@ -55,7 +55,7 @@ import CartContext from '../CartContext';
             </div>
             {cartList}
             <hr></hr>
-            <div className='total'>Total = {cartTotal}</div>
+            <div className='total'>Total Amount = {cartTotal}</div>
           </div>
 
       );

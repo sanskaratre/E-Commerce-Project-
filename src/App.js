@@ -14,6 +14,7 @@ import MainHeader from './component/header/MainHeader';
 import AuthPage from './component/AuthPage';
 import UserProfile from './component/profile/UserProfile';
 
+
 function App() {
 
 const authCtx = useContext(AuthContext)
@@ -56,7 +57,7 @@ const hideCartHandler = () => {
          {authCtx.isLoggedIn &&( <Route path="/ProfilePage">
            <UserProfile />
          </Route>)}
-        </Switch>
+        </Switch> 
       </CartProvider>
   );
 }

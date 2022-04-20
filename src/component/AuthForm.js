@@ -61,8 +61,8 @@ const submitHandler=(event)=>{
     });
   }
   }).then(data => {
-  authCtx.login(data.idToken);
-  history.replace('/');
+  authCtx.login(data.idToken,data.email);
+  history.replace('/Products');
   })
   .catch((err) =>{
     alert(err.message);
